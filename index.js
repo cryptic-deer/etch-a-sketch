@@ -1,8 +1,29 @@
-const container = document.querySelector("#container");
-
+let size = 16;
 let mouseDown = false;
-document.body.onmousedown = () => (mouseDown = true);
-document.body.onmouseup = () => (mouseDown = false);
+
+const container = document.querySelector("#container");
+const slider = document.querySelector("#slider");
+const sliderValue = document.querySelector("#sliderValue");
+
+slider.addEventListener("input", e => changeGridSize(e.target.value));
+slider.addEventListener(
+	"mousemove",
+	e => (sliderValue.innerHTML = `${e.target.value} x ${e.target.value}`)
+);
+
+document.body.addEventListener("mousedown", () => (mouseDown = true));
+document.body.addEventListener("mouseup", () => (mouseDown = false));
+
+function changeGridSize(value) {
+	size = value;
+	sliderValue.innerHTML = `${value} x ${value}`;
+	reloadGrid();
+}
+
+function reloadGrid() {
+	container.innerHTML = "";
+	generateGrid(size);
+}
 
 function generateGrid(size) {
 	container.style.gridTemplateColumns = `repeat(${size},1fr)`;
@@ -25,5 +46,5 @@ function draw(e) {
 }
 
 window.onload = () => {
-	generateGrid(16);
+	generateGrid(size);
 };

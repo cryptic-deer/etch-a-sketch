@@ -5,6 +5,29 @@
 html {
 	text-align: center;
 }
+
+main {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.settings {
+	display: flex;
+	flex-direction: column;
+}
+
+.color_options {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 2em;
+	align-items: center;
+}
+button {
+	margin: 1em;
+	width: 100px;
+}
+
 #container {
 	display: grid;
 	width: 500px;
@@ -15,4 +38,10 @@ html {
 
 .square {
 	user-select: none;
+}
+
+.sizer {
+	display: flex;
+	flex-direction: column;
+	margin: 1em auto;
 }
