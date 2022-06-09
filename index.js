@@ -1,9 +1,11 @@
+// Defining default values
 let size = 16;
 let color = "black";
 let option = "custom";
 
 let mouseDown = false;
 
+// Looking for color mode switch via the buttons
 function selectOption(selected) {
 	setOption(selected);
 	option = selected;
@@ -13,7 +15,7 @@ const container = document.querySelector("#container");
 const slider = document.querySelector("#slider");
 const sliderValue = document.querySelector("#sliderValue");
 const colorPicker = document.querySelector("#colorPicker");
-
+// Buttons
 const customBtn = document.querySelector("#customBtn");
 const psychedelicBtn = document.querySelector("#psychedelicBtn");
 const eraserBtn = document.querySelector("#eraserBtn");
@@ -25,30 +27,35 @@ slider.addEventListener(
 	e => (sliderValue.innerHTML = `${e.target.value} x ${e.target.value}`)
 );
 colorPicker.addEventListener("change", e => (color = e.target.value));
-
+// Buttons event listeners
 customBtn.addEventListener("click", () => selectOption("custom"));
 psychedelicBtn.addEventListener("click", () => selectOption("psychedelic"));
 eraserBtn.addEventListener("click", () => selectOption("eraser"));
 clearBtn.addEventListener("click", () => reloadGrid());
 
+// Checking for mouse events and setting the mouseDown
 document.body.addEventListener("mousedown", () => (mouseDown = true));
 document.body.addEventListener("mouseup", () => (mouseDown = false));
 
+// Changing the grid size based on the slider's value
 function changeGridSize(value) {
 	size = value;
 	sliderValue.innerHTML = `${value} x ${value}`;
 	reloadGrid();
 }
 
+// Clearing and reloading the grid
 function reloadGrid() {
 	container.innerHTML = "";
 	generateGrid(size);
 }
 
+// Creating the grid based on the size input
 function generateGrid(size) {
 	container.style.gridTemplateColumns = `repeat(${size},1fr)`;
 	container.style.gridTemplateRows = `repeat(${size},1fr)`;
 
+	// Creating the "pixels" and adding event listeners to each of them
 	for (let i = 0; i < size * size; i++) {
 		const square = document.createElement("div");
 
@@ -59,11 +66,14 @@ function generateGrid(size) {
 	}
 }
 
+// Coloring the "pixels"
 function draw(e) {
+	e.preventDefault();
 	if (e.type === "mouseover" && !mouseDown) return;
 	colorChange(e);
 }
 
+// Setting the color based on which button was clicked
 function colorChange(e) {
 	if (option === "custom") {
 		e.target.style.backgroundColor = color;
@@ -74,6 +84,7 @@ function colorChange(e) {
 	}
 }
 
+// Generating random rgb color for the psychedelic color scheme
 function randomRGB() {
 	const randomR = Math.floor(Math.random() * 256);
 	const randomG = Math.floor(Math.random() * 256);
@@ -81,6 +92,7 @@ function randomRGB() {
 	return `rgb(${randomR}, ${randomG}, ${randomB})`;
 }
 
+//
 function setOption(selected) {
 	if (option === "custom") {
 		customBtn.classList.remove("active");
@@ -99,7 +111,7 @@ function setOption(selected) {
 	}
 }
 
-window.onload = () => {
+window.addEventListener("load", () => {
 	generateGrid(size);
 	setOption(option);
-};
+});
