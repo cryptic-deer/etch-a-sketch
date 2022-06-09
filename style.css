@@ -40,7 +40,7 @@ main {
 	margin: 0 10vw;
 }
 h1 {
-	margin: 1em 5em;
+	margin: 1em auto;
 	width: auto;
 	font-family: "Caveat", cursive;
 	font-size: 3.5em;
@@ -66,9 +66,8 @@ h1 {
 button {
 	/* Variables */
 	--button_radius: 0.75em;
-	--button_color: #e8e8e8;
-	--button_outline_color: #000000;
-	font-size: 17px;
+	--button_color: var(--color-primary);
+	--button_outline_color: var(--color-secondary);
 	font-weight: bold;
 	border: none;
 	border-radius: var(--button_radius);
@@ -177,4 +176,66 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 /* Responsive */
+@media screen and (max-width: 1016px) {
+	main {
+		margin: 0 20px;
+	}
+	#container {
+		display: grid;
+		width: 400px;
+		height: 400px;
+		background-color: whitesmoke;
+		border: 3px solid var(--color-secondary);
+		border-radius: 3px;
+	}
+	.options {
+		font-size: 0.9em;
+	}
+	h1 {
+		font-size: 2.75em;
+	}
+}
+@media screen and (max-width: 746px) {
+	main {
+		margin: 0 10px;
+	}
+	#container {
+		display: grid;
+		width: 350px;
+		height: 350px;
+		background-color: whitesmoke;
+		border: 3px solid var(--color-secondary);
+		border-radius: 3px;
+	}
+	.options {
+		font-size: 0.8em;
+	}
+	h1 {
+		font-size: 2.5em;
+	}
+}
+@media screen and (max-width: 512px) {
+	main {
+		margin: 0 10px;
+		flex-direction: column-reverse;
+	}
+	#container {
+		display: grid;
+		width: 350px;
+		height: 350px;
+		background-color: whitesmoke;
+		border: 3px solid var(--color-secondary);
+		border-radius: 3px;
+	}
+	.options {
+		font-size: 1em;
+	}
+	.color_options {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+	h1 {
+		font-size: 2.5em;
+	}
+}
 /* End of Responsive */
