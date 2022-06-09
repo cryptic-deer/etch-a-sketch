@@ -12,7 +12,7 @@ main {
 	align-items: center;
 }
 
-.settings {
+.options {
 	display: flex;
 	flex-direction: column;
 }
