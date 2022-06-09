@@ -1,0 +1,18 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html {
+	text-align: center;
+}
+#container {
+	display: grid;
+	width: 500px;
+	height: 500px;
+	background-color: aliceblue;
+	margin: 3em auto;
+}
+
+.square {
+	user-select: none;
+}
