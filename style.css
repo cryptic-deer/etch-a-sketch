@@ -73,7 +73,12 @@ button {
 	border-radius: var(--button_radius);
 	background-color: var(--button_outline_color);
 }
-
+.download {
+	margin-top: 1rem;
+}
+.download > .button_top {
+	background-color: whitesmoke;
+}
 .button_top {
 	display: block;
 	box-sizing: border-box;

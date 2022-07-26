@@ -7,6 +7,8 @@
 		<title>Etch-A-Sketch</title>
 
 		<link rel="stylesheet" href="style.css" />
+
+		<script src="html2canvas.min.js"></script>
 		<script src="index.js" defer></script>
 	</head>
 	<body>
@@ -19,14 +21,22 @@
 				</div>
 				<div class="color_options">
 					<input id="colorPicker" type="color" value="#333333" />
+
 					<button id="customBtn">
 						<span class="button_top">Custom color</span>
 					</button>
+
 					<button id="psychedelicBtn">
 						<span class="button_top">Psychedelic</span>
 					</button>
+
 					<button id="eraserBtn"><span class="button_top">Eraser</span></button>
+
 					<button id="clearBtn"><span class="button_top">Clear</span></button>
+
+					<button type="button" class="download">
+						<span class="button_top">Download your work</span>
+					</button>
 				</div>
 			</div>
 			<div id="container"></div>
