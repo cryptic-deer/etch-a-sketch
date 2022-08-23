@@ -62,7 +62,6 @@ h1 {
 	align-items: center;
 }
 
-/* From uiverse.io by @Voxybuns */
 button {
 	/* Variables */
 	--button_radius: 0.75em;
@@ -182,6 +181,9 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .square {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
 	user-select: none;
 }
 
